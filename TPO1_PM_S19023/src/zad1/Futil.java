@@ -1,9 +1,8 @@
 package zad1;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
+import static java.nio.file.StandardOpenOption.CREATE;
+import static java.nio.file.StandardOpenOption.WRITE;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.channels.FileChannel;
@@ -18,11 +17,10 @@ public class Futil
     {
         try
         {
-            File resultFile = new File(resultFileName);
-            resultFile.createNewFile();
             Path directoryPath = Paths.get(dirName);
+            Path outputPath = Paths.get(resultFileName);
             Charset inCharset = Charset.forName("Cp1250"), outCharset = StandardCharsets.UTF_8;
-            FileChannel outputFileChannel = new FileOutputStream(resultFile).getChannel();
+            FileChannel outputFileChannel = FileChannel.open(outputPath, CREATE, WRITE);
 
             Files.walkFileTree(directoryPath, new SimpleFileVisitor<Path>()
             {
@@ -31,7 +29,7 @@ public class Futil
                 {
                     if(path.toString().endsWith(".txt"))
                     {
-                        FileChannel inputFileChannel = new FileInputStream(new File(path.toString())).getChannel();
+                        FileChannel inputFileChannel = FileChannel.open(path);
                         ByteBuffer byteBuffer = ByteBuffer.allocate((int)inputFileChannel.size());
 
                         inputFileChannel.read(byteBuffer);
