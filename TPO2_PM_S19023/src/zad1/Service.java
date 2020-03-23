@@ -9,6 +9,7 @@ package zad1;
 
 import org.json.JSONObject;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -62,6 +63,18 @@ public class Service {
             return 1.0;
 
         return 0.0;
+    }
+
+    void showGUI()
+    {
+        SwingUtilities.invokeLater(() ->
+        {
+            JFrame jFrame = new JFrame();
+            jFrame.setSize(800, 600);
+            jFrame.setVisible(true);
+            jFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            jFrame.add(new WebBrowserPane("http://en.wikipedia.org/wiki/" + city));
+        });
     }
 
     private String getDataFromURL(String urlString)

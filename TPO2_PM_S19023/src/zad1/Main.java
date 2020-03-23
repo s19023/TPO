@@ -13,7 +13,6 @@ public class Main {
     String weatherJson = s.getWeather("Warsaw");
     Double rate1 = s.getRateFor("USD");
     Double rate2 = s.getNBPRate();
-    // ...
-    // część uruchamiająca GUI
+    s.showGUI();
   }
 }
