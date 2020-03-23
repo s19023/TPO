@@ -7,13 +7,14 @@
 package zad1;
 
 
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Currency;
-import java.util.HashMap;
 import java.util.Locale;
 
 public class Service {
@@ -40,10 +41,32 @@ public class Service {
     public String getWeather(String city)
     {
         this.city = city;
+        String urlString = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
+        return getDataFromURL(urlString);
+    }
+
+
+    public Double getRateFor(String currency)
+    {
+        String urlString = "https://api.exchangeratesapi.io/latest?base=" + this.currency.getSymbol() + "&symbols=" + currency;
+        String json = getDataFromURL(urlString);
+        JSONObject jsonObject = new JSONObject(json);
+        Double rate = jsonObject.getJSONObject("rates").getDouble(currency);
+        System.out.println(rate);
+        return rate;
+    }
+
+    public Double getNBPRate()
+    {
+        return 0.0;
+    }
+
+    private String getDataFromURL(String urlString)
+    {
         String response = "";
         try
         {
-            URL url = new URL("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey);
+            URL url = new URL(urlString);
             try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8")))
             {
                 String line;
@@ -61,19 +84,6 @@ public class Service {
         {
             e.printStackTrace();
         }
-
-        System.out.println(response);
         return response;
-    }
-
-
-    public Double getRateFor(String currency)
-    {
-        return 0.0;
-    }
-
-    public Double getNBPRate()
-    {
-        return 0.0;
     }
 }
