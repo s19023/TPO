@@ -41,7 +41,7 @@ public class Service {
     public String getWeather(String city)
     {
         this.city = city;
-        String urlString = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
+        String urlString = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=metric";
         return getDataFromURL(urlString);
     }
 
@@ -58,12 +58,15 @@ public class Service {
 
     public Double getNBPRate()
     {
+        if (currency.getSymbol().equals("PLN"))
+            return 1.0;
+
         return 0.0;
     }
 
     private String getDataFromURL(String urlString)
     {
-        String response = "";
+        StringBuilder response = new StringBuilder();
         try
         {
             URL url = new URL(urlString);
@@ -72,7 +75,7 @@ public class Service {
                 String line;
                 while((line = bufferedReader.readLine()) != null)
                 {
-                    response += line + "\n";
+                    response.append(line).append("\n");
                 }
             }
             catch(IOException e)
@@ -84,6 +87,6 @@ public class Service {
         {
             e.printStackTrace();
         }
-        return response;
+        return response.toString();
     }
 }
