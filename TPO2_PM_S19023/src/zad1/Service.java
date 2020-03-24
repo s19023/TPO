@@ -49,21 +49,23 @@ public class Service {
     }
 
 
-    public Double getRateFor(String currency)
+    public Double getRateFor(String forCurrency)
     {
-        String urlString = "https://api.exchangeratesapi.io/latest?base=" + this.currency.getSymbol() + "&symbols=" + currency;
+        return getRateFor(this.currency.getSymbol(), forCurrency);
+    }
+
+    private Double getRateFor(String baseCurrency, String forCurrency)
+    {
+        String urlString = "https://api.exchangeratesapi.io/latest?base=" + baseCurrency + "&symbols=" + forCurrency;
         String json = getDataFromURL(urlString);
         JSONObject jsonObject = new JSONObject(json);
-        Double rate = jsonObject.getJSONObject("rates").getDouble(currency);
+        Double rate = jsonObject.getJSONObject("rates").getDouble(forCurrency);
         return rate;
     }
 
     public Double getNBPRate()
     {
-        if (currency.getSymbol().equals("PLN"))
-            return 1.0;
-
-        return 0.0;
+        return getRateFor(currency.getSymbol(), "PLN");
     }
 
     void showGUI()
