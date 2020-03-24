@@ -22,6 +22,7 @@ public class Service {
 
     String apiKey = "f4a7b39051ac63abb8dfa9de06ff2233";
     String countryName, city;
+    Locale locale;
     Currency currency;
 
     public Service(String countryName)
@@ -34,6 +35,7 @@ public class Service {
             if (l.getDisplayCountry(en).equals(countryName))
             {
                 currency = Currency.getInstance(l);
+                locale = l;
                 break;
             }
         }
@@ -42,7 +44,7 @@ public class Service {
     public String getWeather(String city)
     {
         this.city = city;
-        String urlString = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=metric";
+        String urlString = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "," + locale.getCountry() + "&appid=" + apiKey + "&units=metric";
         return getDataFromURL(urlString);
     }
 
@@ -53,7 +55,6 @@ public class Service {
         String json = getDataFromURL(urlString);
         JSONObject jsonObject = new JSONObject(json);
         Double rate = jsonObject.getJSONObject("rates").getDouble(currency);
-        System.out.println(rate);
         return rate;
     }
 
