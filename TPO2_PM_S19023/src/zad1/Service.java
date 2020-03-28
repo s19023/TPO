@@ -54,9 +54,15 @@ public class Service {
         String baseCurrency = currency.getCurrencyCode();
         String urlString = "https://api.exchangeratesapi.io/latest?base=" + baseCurrency + "&symbols=" + forCurrency;
         String json = getDataFromURL(urlString);
-        JSONObject jsonObject = new JSONObject(json);
-        Double rate = jsonObject.getJSONObject("rates").getDouble(forCurrency);
-        return rate;
+        if(json != null)
+        {
+            JSONObject jsonObject = new JSONObject(json);
+            return jsonObject.getJSONObject("rates").getDouble(forCurrency);
+        }
+        else
+        {
+            return 0.0;
+        }
     }
 
     public Double getNBPRate()
@@ -67,19 +73,18 @@ public class Service {
         String urlString = "http://api.nbp.pl/api/exchangerates/rates/A/" + currency.getCurrencyCode();
         String json = getDataFromURL(urlString);
 
-        if (json.contains("404 - NotFound"))
+        if (json == null)
         {
             urlString = "http://api.nbp.pl/api/exchangerates/rates/B/" + currency.getCurrencyCode();
             json = getDataFromURL(urlString);
-            if (json.contains("404 - NotFound"))
+            if (json == null)
             {
                 return getRateFor("PLN");
             }
         }
 
         JSONObject jsonObject = new JSONObject(json);
-        Double rate = jsonObject.getJSONObject("rates").getDouble("mid");
-        return rate;
+        return jsonObject.getJSONArray("rates").getJSONObject(0).getDouble("mid");
     }
 
     void showGUI()
@@ -110,7 +115,7 @@ public class Service {
             }
             catch(IOException e)
             {
-                e.printStackTrace();
+                return null;
             }
         }
         catch(MalformedURLException e)
