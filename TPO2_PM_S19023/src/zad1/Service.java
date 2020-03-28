@@ -51,11 +51,7 @@ public class Service {
 
     public Double getRateFor(String forCurrency)
     {
-        return getRateFor(this.currency.getSymbol(), forCurrency);
-    }
-
-    private Double getRateFor(String baseCurrency, String forCurrency)
-    {
+        String baseCurrency = currency.getCurrencyCode();
         String urlString = "https://api.exchangeratesapi.io/latest?base=" + baseCurrency + "&symbols=" + forCurrency;
         String json = getDataFromURL(urlString);
         JSONObject jsonObject = new JSONObject(json);
@@ -65,7 +61,25 @@ public class Service {
 
     public Double getNBPRate()
     {
-        return getRateFor(currency.getSymbol(), "PLN");
+        if (currency.getCurrencyCode().equals("PLN"))
+            return 1.0;
+
+        String urlString = "http://api.nbp.pl/api/exchangerates/rates/A/" + currency.getCurrencyCode();
+        String json = getDataFromURL(urlString);
+
+        if (json.contains("404 - NotFound"))
+        {
+            urlString = "http://api.nbp.pl/api/exchangerates/rates/B/" + currency.getCurrencyCode();
+            json = getDataFromURL(urlString);
+            if (json.contains("404 - NotFound"))
+            {
+                return getRateFor("PLN");
+            }
+        }
+
+        JSONObject jsonObject = new JSONObject(json);
+        Double rate = jsonObject.getJSONObject("rates").getDouble("mid");
+        return rate;
     }
 
     void showGUI()
