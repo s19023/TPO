@@ -24,6 +24,7 @@ public class Service {
     String countryName, city;
     Locale locale;
     Currency currency;
+    JLabel weather, currencyRate, rateForPLN;
 
     public Service(String countryName)
     {
@@ -45,7 +46,13 @@ public class Service {
     {
         this.city = city;
         String urlString = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "," + locale.getCountry() + "&appid=" + apiKey + "&units=metric";
-        return getDataFromURL(urlString);
+        String json = getDataFromURL(urlString);
+        JSONObject jsonObject = new JSONObject(json);
+        String weatherDescription = "Current weather in " + city + ": " + jsonObject.getJSONArray("weather").getJSONObject(0).getString("description");
+        double temperature = jsonObject.getJSONObject("main").getDouble("temp");
+        weatherDescription = weatherDescription + ", it is currently " + temperature + "°C";
+        weather = new JLabel(weatherDescription);
+        return json;
     }
 
 
@@ -54,37 +61,47 @@ public class Service {
         String baseCurrency = currency.getCurrencyCode();
         String urlString = "https://api.exchangeratesapi.io/latest?base=" + baseCurrency + "&symbols=" + forCurrency;
         String json = getDataFromURL(urlString);
+        double rate = 0.0;
+        String rateString;
         if(json != null)
         {
             JSONObject jsonObject = new JSONObject(json);
-            return jsonObject.getJSONObject("rates").getDouble(forCurrency);
+            rate = jsonObject.getJSONObject("rates").getDouble(forCurrency);
+            rateString = "1 " + baseCurrency + " = " + rate + " " + forCurrency;
         }
         else
         {
-            return 0.0;
+            rateString = "1 " + baseCurrency + " = ?.?? " + forCurrency;
         }
+        currencyRate = new JLabel(rateString);
+        return rate;
     }
 
     public Double getNBPRate()
     {
-        if (currency.getCurrencyCode().equals("PLN"))
-            return 1.0;
+        double rate = 1.0;
+        String rateString, baseCurrency = currency.getCurrencyCode();
+        if (baseCurrency.equals("PLN"))
+        {
+            rateString = "1 PLN = 1 PLN";
+            rateForPLN = new JLabel(rateString);
+            return rate;
+        }
 
-        String urlString = "http://api.nbp.pl/api/exchangerates/rates/A/" + currency.getCurrencyCode();
+        String urlString = "http://api.nbp.pl/api/exchangerates/rates/A/" + baseCurrency;
         String json = getDataFromURL(urlString);
 
         if (json == null)
         {
-            urlString = "http://api.nbp.pl/api/exchangerates/rates/B/" + currency.getCurrencyCode();
+            urlString = "http://api.nbp.pl/api/exchangerates/rates/B/" + baseCurrency;
             json = getDataFromURL(urlString);
-            if (json == null)
-            {
-                return getRateFor("PLN");
-            }
         }
 
         JSONObject jsonObject = new JSONObject(json);
-        return jsonObject.getJSONArray("rates").getJSONObject(0).getDouble("mid");
+        rate = jsonObject.getJSONArray("rates").getJSONObject(0).getDouble("mid");
+        rateString = "1 " + baseCurrency + " = " + rate + " PLN";
+        rateForPLN = new JLabel(rateString);
+        return rate;
     }
 
     void showGUI()
@@ -92,10 +109,15 @@ public class Service {
         SwingUtilities.invokeLater(() ->
         {
             JFrame jFrame = new JFrame();
+            JPanel jPanel = new JPanel();
             jFrame.setSize(800, 600);
             jFrame.setVisible(true);
             jFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-            jFrame.add(new WebBrowserPane("http://en.wikipedia.org/wiki/" + city));
+            jPanel.add(weather);
+            jPanel.add(currencyRate);
+            jPanel.add(rateForPLN);
+            jPanel.add(new WebBrowserPane("http://en.wikipedia.org/wiki/" + city));
+            jFrame.add(jPanel);
         });
     }
 
