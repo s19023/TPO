@@ -7,5 +7,10 @@
 package PASSTIME1;
 
 
-public class Time {
+public class Time
+{
+    static String passed(String from, String to)
+    {
+        return "placeholder";
+    }
 }
