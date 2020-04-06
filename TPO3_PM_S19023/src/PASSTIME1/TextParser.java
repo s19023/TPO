@@ -1,6 +1,8 @@
 package PASSTIME1;
 
+import java.time.Period;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
 
 public class TextParser
 {
@@ -22,6 +24,30 @@ public class TextParser
             default:
                 return "???";
         }
+    }
+
+    static String getDaysBetween(int totalDaysBetween)
+    {
+        return "\n - mija: " + totalDaysBetween + " " + TextParser.getFormattedString(0, ChronoUnit.DAYS) + String.format(", tygodni %.2f", totalDaysBetween/7.0);
+    }
+
+    static String getHoursBetween(int hoursBetween)
+    {
+        return "\n - godzin: " + hoursBetween + ", minut: " + hoursBetween * 60;
+    }
+
+    static String getCalendarDaysBetween(Period p)
+    {
+        String toReturn = "\n - kalendarzowo: ";
+        for (TemporalUnit t : p.getUnits())
+        {
+            int value = (int) p.get(t);
+
+            if (value > 0)
+                toReturn += value + " " + getFormattedString(value, (ChronoUnit) t) + ", ";
+        }
+
+        return toReturn.substring(0, toReturn.length() - 2);
     }
 
     private static String getMinutes(int value)

@@ -7,12 +7,10 @@
 package PASSTIME1;
 
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoUnit;
 import java.util.Locale;
 
 public class Time
@@ -31,6 +29,9 @@ public class Time
             LocalDate dateTo = LocalDate.parse(to);
             toReturn = "Od " + dateFrom.format(dateFormatter);
             toReturn += " do " + dateTo.format(dateFormatter);
+
+            toReturn += TextParser.getDaysBetween((int)(ChronoUnit.DAYS.between(dateFrom, dateTo)));
+            toReturn += TextParser.getCalendarDaysBetween(Period.between(dateFrom, dateTo));
         }
         catch(DateTimeParseException e)
         {
@@ -42,6 +43,10 @@ public class Time
                 ZonedDateTime zonedDateTo = ZonedDateTime.of(dateTo, timeZone);
                 toReturn = "Od " + zonedDateFrom.format(dateTimeFormatter);
                 toReturn += " do " + zonedDateTo.format(dateTimeFormatter);
+
+                toReturn += TextParser.getDaysBetween((int)(ChronoUnit.DAYS.between(zonedDateFrom, zonedDateTo)));
+                toReturn += TextParser.getHoursBetween((int)(ChronoUnit.HOURS.between(zonedDateFrom, zonedDateTo)));
+                toReturn += TextParser.getCalendarDaysBetween(Period.between(zonedDateFrom.toLocalDate(), zonedDateTo.toLocalDate()));
             }
             catch(DateTimeParseException ex)
             {
