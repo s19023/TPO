@@ -18,7 +18,7 @@ import java.util.Locale;
 public class Time
 {
     private static Locale pl = new Locale("pl");
-    private static DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy", pl);
+    private static DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy (EEEE)", pl);
     private static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy (EEEE) 'godz.' HH:mm", pl);
     private static ZoneId timeZone = ZoneId.of("Europe/Warsaw");
 
