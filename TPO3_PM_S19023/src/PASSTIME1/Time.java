@@ -30,7 +30,7 @@ public class Time
             toReturn = "Od " + dateFrom.format(dateFormatter);
             toReturn += " do " + dateTo.format(dateFormatter);
 
-            toReturn += TextParser.getDaysBetween((int)(ChronoUnit.DAYS.between(dateFrom, dateTo)));
+            toReturn += TextParser.getDaysBetween(ChronoUnit.DAYS.between(dateFrom, dateTo));
             toReturn += TextParser.getCalendarDaysBetween(Period.between(dateFrom, dateTo));
         }
         catch(DateTimeParseException e)
