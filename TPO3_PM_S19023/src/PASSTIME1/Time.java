@@ -41,12 +41,15 @@ public class Time
                 LocalDateTime dateTo = LocalDateTime.parse(to);
                 ZonedDateTime zonedDateFrom = ZonedDateTime.of(dateFrom, timeZone);
                 ZonedDateTime zonedDateTo = ZonedDateTime.of(dateTo, timeZone);
+                LocalDate localDateFrom = dateFrom.toLocalDate();
+                LocalDate localDateTo = dateTo.toLocalDate();
+
                 toReturn = "Od " + zonedDateFrom.format(dateTimeFormatter);
                 toReturn += " do " + zonedDateTo.format(dateTimeFormatter);
 
-                toReturn += TextParser.getDaysBetween((int)(ChronoUnit.DAYS.between(zonedDateFrom, zonedDateTo)));
-                toReturn += TextParser.getHoursBetween((int)(ChronoUnit.HOURS.between(zonedDateFrom, zonedDateTo)));
-                toReturn += TextParser.getCalendarDaysBetween(Period.between(zonedDateFrom.toLocalDate(), zonedDateTo.toLocalDate()));
+                toReturn += TextParser.getDaysBetween(ChronoUnit.DAYS.between(localDateFrom, localDateTo));
+                toReturn += TextParser.getHoursBetween(ChronoUnit.HOURS.between(zonedDateFrom, zonedDateTo), ChronoUnit.MINUTES.between(zonedDateFrom, zonedDateTo));
+                toReturn += TextParser.getCalendarDaysBetween(Period.between(localDateFrom, localDateTo));
             }
             catch(DateTimeParseException ex)
             {
