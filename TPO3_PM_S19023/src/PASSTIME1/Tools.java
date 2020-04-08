@@ -12,6 +12,8 @@ import org.yaml.snakeyaml.Yaml;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.List;
+import java.util.Map;
 
 public class Tools
 {
@@ -21,8 +23,14 @@ public class Tools
         {
             Yaml yaml = new Yaml();
             InputStream fileInputStream = new FileInputStream(fileName);
-            OptionsTemplate options = yaml.loadAs(fileInputStream, OptionsTemplate.class);
-            return options.createOptionsFromTemplate();
+            Map<String, Object> yamlContent = yaml.load(fileInputStream);
+            String host = (String) yamlContent.get("host");
+            int port = (int) yamlContent.get("port");
+            boolean concurMode = (boolean) yamlContent.get("concurMode");
+            boolean showSendRes = (boolean) yamlContent.get("showSendRes");
+            Map<String, List<String>> clientsMap = (Map<String, List<String>>) yamlContent.get("clientsMap");
+            Options options = new Options(host, port, concurMode, showSendRes, clientsMap);
+            return options;
         }
         catch(FileNotFoundException e)
         {
