@@ -3,6 +3,7 @@ package PASSTIME1;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
+import java.util.Locale;
 
 public class TextParser
 {
@@ -28,7 +29,7 @@ public class TextParser
 
     static String getDaysBetween(long totalDaysBetween)
     {
-        return "\n - mija: " + totalDaysBetween + " " + TextParser.getFormattedString(totalDaysBetween, ChronoUnit.DAYS) + String.format(", tygodni %.2f", totalDaysBetween/7.0);
+        return "\n - mija: " + totalDaysBetween + " " + TextParser.getFormattedString(totalDaysBetween, ChronoUnit.DAYS) + String.format(Locale.US,", tygodni %.2f", totalDaysBetween/7.0);
     }
 
     static String getHoursBetween(long hoursBetween, long minutesBetween)
