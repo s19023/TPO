@@ -1,4 +1,4 @@
-package PASSTIME1;
+package S_PASSTIME_SERVER1;
 
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
