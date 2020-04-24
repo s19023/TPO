@@ -41,6 +41,7 @@ public class Server
     {
         try (ServerSocketChannel serverChannel = ServerSocketChannel.open())
         {
+            isRunning = true;
             serverChannel.bind(new InetSocketAddress(host, port));
             serverChannel.configureBlocking(false);
             Selector selector = Selector.open();
