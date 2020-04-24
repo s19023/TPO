@@ -14,26 +14,27 @@ import java.util.concurrent.FutureTask;
 public class ClientTask extends FutureTask<String>
 {
     private Client c;
-    private List<String> reqs;
-    private boolean showSendRes;
 
     public static ClientTask create(Client c, List<String> reqs, boolean showSendRes)
     {
-        return new ClientTask(c, reqs, showSendRes);
+        return new ClientTask(c, new ClientCallable(c, reqs, showSendRes));
     }
 
-    public ClientTask(Client c, List<String> reqs, boolean showSendRes)
+    public ClientTask(Client c, ClientCallable callable)
     {
-        this.c = c;
-        this.reqs = reqs;
-        this.showSendRes = showSendRes;
+        super(callable);
 
-        c.connect();
-        c.send("login " + id);
+        this.c = c;
+        this.c.connect();
+        this.c.send("login " + c.id);
     }
 
+    @Override
     public String get() throws InterruptedException, ExecutionException
     {
+        String callableResult = super.get();
+        String serverLog = c.send("bye and log transfer");
 
+        return callableResult + "\n" + serverLog;
     }
 }
