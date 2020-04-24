@@ -28,13 +28,4 @@ public class ClientTask extends FutureTask<String>
         this.c.connect();
         this.c.send("login " + c.getId());
     }
-
-    @Override
-    public String get() throws InterruptedException, ExecutionException
-    {
-        String callableResult = super.get();
-        String serverLog = c.send("bye and log transfer");
-
-        return callableResult + "\n" + serverLog;
-    }
 }

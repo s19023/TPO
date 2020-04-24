@@ -31,13 +31,6 @@ public class ClientCallable implements Callable<String>
             responseList.add(response);
         }
 
-        StringBuilder stringBuilder = new StringBuilder();
-        for (String response : responseList)
-        {
-            stringBuilder.append(response);
-            stringBuilder.append('\n');
-        }
-
-        return stringBuilder.toString();
+        return c.send("bye and log transfer");
     }
 }
