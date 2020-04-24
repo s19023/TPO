@@ -19,6 +19,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalTime;
 import java.util.*;
+import java.util.concurrent.FutureTask;
 
 public class Server
 {
@@ -42,10 +43,10 @@ public class Server
         try (ServerSocketChannel serverChannel = ServerSocketChannel.open())
         {
             isRunning = true;
-            serverChannel.bind(new InetSocketAddress(host, port));
+            serverChannel.socket().bind(new InetSocketAddress(host, port));
             serverChannel.configureBlocking(false);
             Selector selector = Selector.open();
-            SelectionKey selectionKey = serverChannel.register(selector, SelectionKey.OP_ACCEPT);
+            serverChannel.register(selector, SelectionKey.OP_ACCEPT);
 
             new Thread(() ->
             {

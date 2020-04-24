@@ -8,7 +8,6 @@ package S_PASSTIME_SERVER1;
 
 
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
 public class ClientTask extends FutureTask<String>
