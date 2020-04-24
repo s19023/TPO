@@ -35,6 +35,18 @@ public class Server
 
     }
 
+    private String getClientLogs(String client)
+    {
+        List<String> clientLog = clientLogs.get(client);
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String logEntry : clientLog)
+        {
+            stringBuilder.append(logEntry);
+            stringBuilder.append('\n');
+        }
+        return stringBuilder.toString();
+    }
+
     String getServerLog()
     {
         StringBuilder stringBuilder = new StringBuilder();
