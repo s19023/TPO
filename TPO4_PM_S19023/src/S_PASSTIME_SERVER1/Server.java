@@ -29,6 +29,7 @@ public class Server
     private Map<SocketChannel, String> clientSockets = new HashMap<>();
     private boolean isRunning = false;
     private Charset charset = StandardCharsets.UTF_8;
+    private ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
 
     public Server(String host, int port)
     {
@@ -93,7 +94,6 @@ public class Server
     private void handleRequest(SocketChannel socketChannel) throws IOException
     {
         if (!socketChannel.isOpen()) return;
-        ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
         StringBuilder stringBuilder = new StringBuilder();
         boolean wasEndReached = false;
 
