@@ -26,7 +26,7 @@ public class ClientTask extends FutureTask<String>
 
         this.c = c;
         this.c.connect();
-        this.c.send("login " + c.id);
+        this.c.send("login " + c.getId());
     }
 
     @Override

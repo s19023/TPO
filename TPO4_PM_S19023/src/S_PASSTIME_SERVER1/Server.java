@@ -7,6 +7,7 @@
 package S_PASSTIME_SERVER1;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -14,8 +15,7 @@ public class Server
 {
     private String host;
     private int port;
-    private Map<String, List<String>> userLogs;
-    private List<String> serverLogs;
+    private List<String> serverLogs = new ArrayList<>();
 
     public Server(String host, int port)
     {
