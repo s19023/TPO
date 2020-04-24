@@ -1,5 +1,6 @@
 package S_PASSTIME_SERVER1;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 
@@ -19,6 +20,24 @@ public class ClientCallable implements Callable<String>
     @Override
     public String call() throws Exception
     {
-        return null;
+        List<String> responseList = new ArrayList<>();
+        for (String request : reqsList)
+        {
+            String response = c.send(request);
+            if(showSendRes)
+            {
+                System.out.println(response);
+            }
+            responseList.add(response);
+        }
+
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String response : responseList)
+        {
+            stringBuilder.append(response);
+            stringBuilder.append('\n');
+        }
+
+        return stringBuilder.toString();
     }
 }
