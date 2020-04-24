@@ -29,6 +29,7 @@ public class Server
     private Map<String, List<String>> clientLogs = new HashMap<>();
     private Map<SocketChannel, String> clientSockets = new HashMap<>();
     private boolean isRunning = false;
+    private ServerSocketChannel serverChannel;
     private Charset charset = StandardCharsets.UTF_8;
     private ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
 
@@ -40,8 +41,9 @@ public class Server
 
     void startServer()
     {
-        try (ServerSocketChannel serverChannel = ServerSocketChannel.open())
+        try
         {
+            serverChannel = ServerSocketChannel.open();
             isRunning = true;
             serverChannel.socket().bind(new InetSocketAddress(host, port));
             serverChannel.configureBlocking(false);
@@ -103,12 +105,13 @@ public class Server
         {
             while(!wasEndReached)
             {
+                byteBuffer.clear();
                 int r = socketChannel.read(byteBuffer);
                 if (r > 0)
                 {
                     byteBuffer.flip();
                     CharBuffer charBuffer = charset.decode(byteBuffer);
-                    while(charBuffer.hasRemaining())
+                    while(charBuffer.hasRemaining() && !wasEndReached)
                     {
                         char c = charBuffer.get();
                         if (c == '\n')
@@ -129,9 +132,10 @@ public class Server
         if (command.startsWith("login"))
         {
             String clientId = command.split(" ")[1];
-            clientLogs.getOrDefault(clientId, new ArrayList<>()).add("logged in");
+            clientLogs.putIfAbsent(clientId, new ArrayList<>());
+            clientLogs.get(clientId).add("logged in");
             clientSockets.putIfAbsent(socketChannel, clientId);
-            serverLogs.add(clientId + "logged in at " + LocalTime.now());
+            serverLogs.add(clientId + " logged in at " + LocalTime.now());
             writeResponse(socketChannel, "logged in");
         }
         else if (command.startsWith("bye"))
@@ -171,7 +175,7 @@ public class Server
     private String getClientLogs(String client)
     {
         List<String> clientLog = clientLogs.get(client);
-        StringBuilder stringBuilder = new StringBuilder("=== " + client + " log start ===");
+        StringBuilder stringBuilder = new StringBuilder("=== " + client + " log start ===\n");
         for (String logEntry : clientLog)
         {
             stringBuilder.append(logEntry);

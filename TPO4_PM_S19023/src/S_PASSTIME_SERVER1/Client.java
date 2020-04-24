@@ -10,6 +10,7 @@ package S_PASSTIME_SERVER1;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -38,10 +39,8 @@ public class Client
         try
         {
             serverChannel = SocketChannel.open();
-            serverChannel.configureBlocking(false);
             serverChannel.connect(new InetSocketAddress(host, port));
-
-            System.out.println("connected!");
+            serverChannel.configureBlocking(false);
         }
         catch(IOException e)
         {
@@ -53,13 +52,27 @@ public class Client
     {
         try
         {
-            if (serverChannel.isConnected())
+            ByteBuffer outBuffer = charset.encode(msg + "\n");
+            serverChannel.write(outBuffer);
+
+            StringBuilder stringBuilder = new StringBuilder();
+            while(true)
             {
-                byteBuffer = charset.encode(msg + '\n');
-                serverChannel.write(byteBuffer);
-                return "XD";
+                byteBuffer.clear();
+                int r = serverChannel.read(byteBuffer);
+                if (r == -1)
+                {
+                    break;
+                }
+                else if (r != 0)
+                {
+                    byteBuffer.flip();
+                    CharBuffer charBuffer = charset.decode(byteBuffer);
+                    stringBuilder.append(charBuffer);
+                    break;
+                }
             }
-            return "?";
+            return stringBuilder.toString();
         }
         catch(IOException e)
         {
