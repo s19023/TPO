@@ -1,0 +1,9 @@
+<Context docBase="C:\Users\kolor\Desktop\TPO\TPO5_PM_S19023\out\artifacts\TPO5_PM_S19023_war\TPO5_PM_S19023_war">
+    <Resource name="jdbc/books" auth="Container"
+              type="javax.sql.DataSource"
+              description="books database"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/books?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"
+              username="app"
+              maxActive="20"/>
+</Context>
