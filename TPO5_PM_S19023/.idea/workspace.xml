@@ -7,16 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6742f75a-acf5-4c9c-8d65-d1e2b09d3148" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_20.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/TPO5_PM_S19023_war/Books.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/META-INF/context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/zad1/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/zad1/CommandImplememtation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/zad1/FindCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TPO4_PM_S19023/src/S_PASSTIME_SERVER1/TextParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TPO4_PM_S19023/src/S_PASSTIME_SERVER1/TextParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/tomcat.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/tomcat.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TPO5_PM_S19023.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TPO5_PM_S19023.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TPO5_PM_S19023_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TPO5_PM_S19023_war_exploded/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/zad1/Books.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zad1/Books.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,6 +25,14 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="TPO5_PM_S19023" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -47,7 +51,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts/TPO5_PM_S19023_war/TPO5_PM_S19023_war/META-INF" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -56,19 +60,19 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.26436782" />
     <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\kolor\Desktop\TPO\TPO5_PM_S19023\out\artifacts\TPO5_PM_S19023_war\TPO5_PM_S19023_war\META-INF" />
-      <recent name="C:\Users\kolor\Desktop\TPO\TPO5_PM_S19023\web\WEB-INF" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\kolor\Desktop\TPO\TPO5_PM_S19023\web\META-INF" />
       <recent name="C:\Users\kolor\Desktop\TPO\TPO5_PM_S19023\out\artifacts\TPO5_PM_S19023_war" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kolor\Desktop\TPO\TPO5_PM_S19023\out\artifacts\TPO5_PM_S19023_war\TPO5_PM_S19023_war\META-INF" />
+      <recent name="C:\Users\kolor\Desktop\TPO\TPO5_PM_S19023\web\WEB-INF" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -135,7 +139,10 @@
       <updated>1589306059049</updated>
       <workItem from="1589306061464" duration="2209000" />
       <workItem from="1589308726831" duration="983000" />
-      <workItem from="1589309850833" duration="8119000" />
+      <workItem from="1589309850833" duration="8902000" />
+      <workItem from="1589376187258" duration="964000" />
+      <workItem from="1589400974404" duration="385000" />
+      <workItem from="1589485535870" duration="3216000" />
     </task>
     <servers />
   </component>
@@ -174,7 +181,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/zad1/Books.java</url>
-          <line>70</line>
+          <line>61</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

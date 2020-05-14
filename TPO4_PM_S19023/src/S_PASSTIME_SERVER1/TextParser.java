@@ -1,5 +1,6 @@
 package S_PASSTIME_SERVER1;
 
+import java.text.DecimalFormat;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
@@ -29,7 +30,8 @@ public class TextParser
 
     static String getDaysBetween(long totalDaysBetween)
     {
-        return "\n - mija: " + totalDaysBetween + " " + TextParser.getFormattedString(totalDaysBetween, ChronoUnit.DAYS) + String.format(Locale.US,", tygodni %.2f", totalDaysBetween/7.0);
+        DecimalFormat df = new DecimalFormat(("#.##"));
+        return "\n - mija: " + totalDaysBetween + " " + TextParser.getFormattedString(totalDaysBetween, ChronoUnit.DAYS) +", tygodni " + df.format( totalDaysBetween/7.0);
     }
 
     static String getHoursBetween(long hoursBetween, long minutesBetween)
