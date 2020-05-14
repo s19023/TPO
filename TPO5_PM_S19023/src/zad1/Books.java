@@ -29,7 +29,7 @@ public class Books extends javax.servlet.http.HttpServlet
         {
             context = getServletContext();
             presentationServlet = context.getInitParameter("presentationServlet");
-            parametersServlet = context.getInitParameter("parametersServer");
+            parametersServlet = context.getInitParameter("parametersServlet");
             String dbName = context.getInitParameter("dbName");
             String commandClassName = context.getInitParameter("commandClassName");
 

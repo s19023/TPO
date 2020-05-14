@@ -14,17 +14,17 @@
 
     <context-param>
         <param-name>presentationServlet</param-name>
-        <param-value>PresentationServlet</param-value>
+        <param-value>/view</param-value>
     </context-param>
 
     <context-param>
         <param-name>parametersServlet</param-name>
-        <param-value>ParamsServlet</param-value>
+        <param-value>/params</param-value>
     </context-param>
 
     <context-param>
         <param-name>commandClassName</param-name>
-        <param-value>FindCommand</param-value>
+        <param-value>zad1.FindCommand</param-value>
     </context-param>
 
     <context-param>

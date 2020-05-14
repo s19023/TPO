@@ -19,7 +19,7 @@ public class ViewServlet extends HttpServlet
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         ServletContext context = getServletContext();
-        String parameterServer = context.getInitParameter("parameterServer");
+        String parameterServer = context.getInitParameter("parametersServlet");
         RequestDispatcher dispatcher = context.getRequestDispatcher(parameterServer);
         dispatcher.include(request, response);
 

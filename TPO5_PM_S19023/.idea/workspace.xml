@@ -7,10 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6742f75a-acf5-4c9c-8d65-d1e2b09d3148" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/zad1/ViewServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/zad1/PresentatnionServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TPO5_PM_S19023.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TPO5_PM_S19023.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TPO5_PM_S19023_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TPO5_PM_S19023_war_exploded/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zad1/Books.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zad1/Books.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zad1/ViewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,13 +60,14 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.26436782" />
     <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kolor\Desktop\TPO\TPO5_PM_S19023\view" />
       <recent name="C:\Users\kolor\Desktop\TPO\TPO5_PM_S19023\web\META-INF" />
       <recent name="C:\Users\kolor\Desktop\TPO\TPO5_PM_S19023\out\artifacts\TPO5_PM_S19023_war" />
     </key>
@@ -140,7 +143,7 @@
       <workItem from="1589309850833" duration="8902000" />
       <workItem from="1589376187258" duration="964000" />
       <workItem from="1589400974404" duration="385000" />
-      <workItem from="1589485535870" duration="7393000" />
+      <workItem from="1589485535870" duration="9587000" />
     </task>
     <task id="LOCAL-00001" summary="Add: Command interface implementation">
       <created>1589489417295</created>
@@ -163,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589492557690</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add: ViewServlet">
+      <created>1589493376665</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1589493376665</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +210,7 @@
     <MESSAGE value="Add: Command interface implementation" />
     <MESSAGE value="Add: handleRequest() implementation in Books servlet" />
     <MESSAGE value="Add: ParametersServlet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add: ParametersServlet" />
+    <MESSAGE value="Add: ViewServlet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add: ViewServlet" />
   </component>
 </project>
