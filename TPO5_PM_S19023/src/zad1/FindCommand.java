@@ -22,7 +22,8 @@ public class FindCommand extends CommandImplememtation
         {
             Context init = new InitialContext();
             Context context = (Context) init.lookup("java:comp/env");
-            dataSource = (DataSource) context.lookup("jdbc/books");
+            String dbName = (String) getParameter("dbName");
+            dataSource = (DataSource) context.lookup(dbName);
         }
         catch(NamingException e)
         {
@@ -33,6 +34,7 @@ public class FindCommand extends CommandImplememtation
     @Override
     public void execute()
     {
+        setStatusCode(0);
         String nameToFind = (String) getParameter("nameToFind");
         String command = "select k.name, k.price, a.name from book k, author a where k.id_author = a.idauthor and (k.name like '%" + nameToFind + "%' or a.name like '%" + nameToFind + "%')";
         Connection connection = null;

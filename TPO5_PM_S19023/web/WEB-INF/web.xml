@@ -11,6 +11,27 @@
         <servlet-name>Books</servlet-name>
         <url-pattern>/Books</url-pattern>
     </servlet-mapping>
+
+    <context-param>
+        <param-name>presentationServlet</param-name>
+        <param-value>PresentationServlet</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>parametersServlet</param-name>
+        <param-value>ParamsServlet</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>commandClassName</param-name>
+        <param-value>FindCommand</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>dbName</param-name>
+        <param-value>jdbc/books</param-value>
+    </context-param>
+
     <resource-ref>
         <res-ref-name>jdbc/books</res-ref-name>
         <res-type>javax.sql.DataSource</res-type>

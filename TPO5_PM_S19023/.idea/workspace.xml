@@ -7,12 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6742f75a-acf5-4c9c-8d65-d1e2b09d3148" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/zad1/Command.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/zad1/CommandImplememtation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/zad1/FindCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TPO4_PM_S19023/src/S_PASSTIME_SERVER1/TextParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TPO4_PM_S19023/src/S_PASSTIME_SERVER1/TextParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/zad1/Books.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zad1/Books.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zad1/FindCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zad1/FindCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -142,8 +140,16 @@
       <workItem from="1589309850833" duration="8902000" />
       <workItem from="1589376187258" duration="964000" />
       <workItem from="1589400974404" duration="385000" />
-      <workItem from="1589485535870" duration="3216000" />
+      <workItem from="1589485535870" duration="5413000" />
     </task>
+    <task id="LOCAL-00001" summary="Add: Command interface implementation">
+      <created>1589489417295</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1589489417295</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,15 +182,8 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/zad1/Books.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add: Command interface implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add: Command interface implementation" />
   </component>
 </project>
