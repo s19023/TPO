@@ -7,8 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6742f75a-acf5-4c9c-8d65-d1e2b09d3148" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/zad1/ParametersServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/zad1/PresentatnionServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/zad1/ViewServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zad1/PresentatnionServlet.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +140,7 @@
       <workItem from="1589309850833" duration="8902000" />
       <workItem from="1589376187258" duration="964000" />
       <workItem from="1589400974404" duration="385000" />
-      <workItem from="1589485535870" duration="6572000" />
+      <workItem from="1589485535870" duration="7393000" />
     </task>
     <task id="LOCAL-00001" summary="Add: Command interface implementation">
       <created>1589489417295</created>
@@ -154,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589491408876</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add: ParametersServlet">
+      <created>1589492557690</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1589492557690</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +199,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add: Command interface implementation" />
     <MESSAGE value="Add: handleRequest() implementation in Books servlet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add: handleRequest() implementation in Books servlet" />
+    <MESSAGE value="Add: ParametersServlet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add: ParametersServlet" />
   </component>
 </project>
