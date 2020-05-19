@@ -9,6 +9,7 @@ public interface Command
     Object getParameter(String name);
     void execute();
     List getResults();
+    void clearResults();
     void setStatusCode(int code);
     int getStatusCode();
 }

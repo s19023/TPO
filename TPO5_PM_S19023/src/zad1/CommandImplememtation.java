@@ -40,6 +40,12 @@ public abstract class CommandImplememtation implements Serializable, Command
         return resultList;
     }
 
+    @Override
+    public void clearResults()
+    {
+        resultList.clear();
+    }
+
     public void clearResult()
     {
         resultList.clear();

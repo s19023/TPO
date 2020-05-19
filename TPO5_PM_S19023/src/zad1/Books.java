@@ -1,15 +1,11 @@
 package zad1;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
@@ -36,6 +32,7 @@ public class Books extends javax.servlet.http.HttpServlet
             Class commandClass = Class.forName(commandClassName);
             command = (Command) commandClass.newInstance();
             command.setParameter("dbName", dbName);
+            command.init();
         }
         catch(Exception e)
         {
@@ -50,7 +47,7 @@ public class Books extends javax.servlet.http.HttpServlet
         requestDispatcher.include(req, resp);
         HttpSession session = req.getSession();
         String nameToSearch = (String) session.getAttribute("search");
-        command.setParameter("nameToSearch", nameToSearch);
+        command.setParameter("nameToFind", nameToSearch);
 
         Lock mainLock = new ReentrantLock();
         mainLock.lock();

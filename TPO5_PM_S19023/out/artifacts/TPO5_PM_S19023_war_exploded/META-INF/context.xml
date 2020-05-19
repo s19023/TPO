@@ -2,7 +2,7 @@
     <Resource name="jdbc/books" auth="Container"
               type="javax.sql.DataSource"
               description="books database"
-              driverClassName="com.mysql.jdbc.Driver"
+              driverClassName="com.mysql.cj.jdbc.Driver"
               url="jdbc:mysql://localhost:3306/books?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"
               username="app"
               maxActive="20"/>

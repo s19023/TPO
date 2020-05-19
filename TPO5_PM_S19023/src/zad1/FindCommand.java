@@ -3,7 +3,6 @@ package zad1;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.servlet.ServletException;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -27,15 +26,18 @@ public class FindCommand extends CommandImplememtation
         }
         catch(NamingException e)
         {
-            setStatusCode(1);
+            setStatusCode(500);
         }
     }
 
     @Override
     public void execute()
     {
-        setStatusCode(0);
+        clearResults();
+        setStatusCode(200);
         String nameToFind = (String) getParameter("nameToFind");
+        if (nameToFind == null)
+            nameToFind = "%";
         String command = "select k.name, k.price, a.name from book k, author a where k.id_author = a.idauthor and (k.name like '%" + nameToFind + "%' or a.name like '%" + nameToFind + "%')";
         Connection connection = null;
         try
@@ -51,27 +53,32 @@ public class FindCommand extends CommandImplememtation
 
             while(resultSet.next())
             {
-                String title = resultSet.getString("b.name");
-                float price = resultSet.getFloat("b.price");
+                String title = resultSet.getString("k.name");
+                float price = resultSet.getFloat("k.price");
                 String author = resultSet.getString("a.name");
                 String result = author + ", " + title + ": " + price;
                 addResult(result);
             }
+
+            if (getResults().size() == 0)
+                setStatusCode(404);
+
             resultSet.close();
             statement.close();
         }
         catch(Exception e)
         {
-            setStatusCode(2);
+            setStatusCode(501);
         }
         finally
         {
             try
             {
                 connection.close();
-            } catch(SQLException e)
+            }
+            catch(Exception e)
             {
-                setStatusCode(3);
+                setStatusCode(502);
             }
         }
     }

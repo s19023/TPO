@@ -21,8 +21,8 @@ public class ParametersServlet extends HttpServlet
 
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        String charset = request.getHeader("charset");
-        response.setCharacterEncoding(charset);
+        request.setCharacterEncoding("ISO-8859-2");
+        response.setCharacterEncoding("ISO-8859-2");
         HttpSession session = request.getSession();
 
         PrintWriter writer = response.getWriter();

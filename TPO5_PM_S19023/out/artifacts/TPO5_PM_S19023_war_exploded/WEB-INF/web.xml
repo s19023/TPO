@@ -11,6 +11,22 @@
         <servlet-name>Books</servlet-name>
         <url-pattern>/Books</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ViewServlet</servlet-name>
+        <servlet-class>zad1.ViewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewServlet</servlet-name>
+        <url-pattern>/view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ParametersServlet</servlet-name>
+        <servlet-class>zad1.ParametersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ParametersServlet</servlet-name>
+        <url-pattern>/params</url-pattern>
+    </servlet-mapping>
 
     <context-param>
         <param-name>presentationServlet</param-name>

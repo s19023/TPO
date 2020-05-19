@@ -26,9 +26,11 @@ public class ViewServlet extends HttpServlet
         HttpSession session = request.getSession();
         Lock lock = (Lock) session.getAttribute("Lock");
         lock.unlock();
+        int statusCode = (int) session.getAttribute("StatusCode");
         List results = (List) session.getAttribute("Results");
         PrintWriter writer = response.getWriter();
-
+        writer.println("<br>");
+        writer.println("<h2>Status komendy: " + statusCode + "</h2>");
         writer.println("<br>");
         writer.println("<h2>Wyniki:</h2>");
         writer.println("<ul>");
