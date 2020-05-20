@@ -30,8 +30,7 @@ public class ViewServlet extends HttpServlet
         List results = (List) session.getAttribute("Results");
         PrintWriter writer = response.getWriter();
         writer.println("<br>");
-        writer.println("<h2>Status komendy: " + statusCode + "</h2>");
-        writer.println("<br>");
+        writer.println("<h3>Status komendy: " + statusCode + "</h3>");
         writer.println("<h2>Wyniki:</h2>");
         writer.println("<ul>");
 
@@ -39,22 +38,12 @@ public class ViewServlet extends HttpServlet
         {
             writer.println("<li>");
             Object result = iterator.next();
-            if (result.getClass().isArray())
-            {
-                Object[] resultArray = (Object[]) result;
-                for (int i = 0; i < resultArray.length; i++)
-                {
-                    writer.print(resultArray[i]);
-                }
-            }
-            else
-            {
-                writer.print(result);
-            }
+            writer.print(result.toString());
             writer.println("</li>");
         }
 
         writer.println("</ul>");
+        writer.println("</body></html>");
     }
 
     @Override

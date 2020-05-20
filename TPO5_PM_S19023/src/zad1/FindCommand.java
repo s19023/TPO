@@ -56,8 +56,8 @@ public class FindCommand extends CommandImplememtation
                 String title = resultSet.getString("k.name");
                 float price = resultSet.getFloat("k.price");
                 String author = resultSet.getString("a.name");
-                String result = author + ", " + title + ": " + price;
-                addResult(result);
+                String result = author + ", " + title +  String.format(": %.2f", price);
+                addResult((Object) result);
             }
 
             if (getResults().size() == 0)

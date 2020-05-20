@@ -69,6 +69,7 @@
       <option name="Make" enabled="true" />
       <option name="BuildArtifacts" enabled="true">
         <artifact name="TPO5_PM_S19023:war" />
+        <artifact name="TPO5_PM_S19023:war exploded" />
       </option>
     </method>
   </configuration>

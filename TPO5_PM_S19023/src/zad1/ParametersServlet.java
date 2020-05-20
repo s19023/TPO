@@ -26,7 +26,8 @@ public class ParametersServlet extends HttpServlet
         HttpSession session = request.getSession();
 
         PrintWriter writer = response.getWriter();
-        writer.println("<center><h2>Książki?</h2></center>");
+        writer.print("<html><head><link rel=\"stylesheet\" type=\"text/css\" href=\"css/text.css\"><title>Wyszukiwanie książek</title><body>");
+        writer.println("<h1>Książki?</h1>");
         writer.println("<form method = \"post\">");
         writer.print("<input type = \"text\" size = 30 name = \"search\"");
         String val = (String) session.getAttribute("search");
@@ -34,7 +35,7 @@ public class ParametersServlet extends HttpServlet
             writer.print(" value = \"" + val + "\"");
         writer.println("><br>");
         writer.println("<input type = \"submit\" value = \"Wyszukaj\">");
-        writer.println("</form");
+        writer.println("</form>");
 
         String search = request.getParameter("search");
         if (search == null)

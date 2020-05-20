@@ -46,8 +46,8 @@ public class Books extends javax.servlet.http.HttpServlet
         RequestDispatcher requestDispatcher = context.getRequestDispatcher(parametersServlet);
         requestDispatcher.include(req, resp);
         HttpSession session = req.getSession();
-        String nameToSearch = (String) session.getAttribute("search");
-        command.setParameter("nameToFind", nameToSearch);
+        String nameToFind = (String) session.getAttribute("search");
+        command.setParameter("nameToFind", nameToFind);
 
         Lock mainLock = new ReentrantLock();
         mainLock.lock();
