@@ -8,11 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Hello, I am a Java web app!</title>
+  <title>Wyszukiwarka książek</title>
+  <link rel="stylesheet" type="text/css" href="css/text.css">
 </head>
 <body>
-  <h1>Simple Java Web App Demo</h1>
-  <p>To invoke the java servlet click <a href="Books">here</a></p>
+  <h1>Witam w wyszukiwarce książek!</h1>
+  <p>Aby wyszukać książki kliknij <a href="Books">tutaj.</a></p>
 </body>
 </html>
 

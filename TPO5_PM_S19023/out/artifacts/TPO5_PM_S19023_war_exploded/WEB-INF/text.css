@@ -1,28 +1,30 @@
-h1 {
-    color: red;
-    font-size:3vw;
+body {
     font-family: Helvetica, Arial, sans-serif;
+}
+
+a:hover {
+    font-size: 120%;
+}
+
+h1 {
+    color: darkred;
+    font-size:3vw;
 }
 
 h1:hover
 {
-    color: aquamarine;
+    color: royalblue;
 }
 
 h2 {
     color: lightblue;
     font-size:2vw;
-    font-family: Helvetica, Arial, sans-serif;
 }
 
 h3 {
     font-size: 1vw;
-    font-family: Helvetica, Arial, sans-serif;
 }
 
-li {
-    font-family: Helvetica, Arial, sans-serif;
-}
 li:hover {
     font-size: 120%;
 }

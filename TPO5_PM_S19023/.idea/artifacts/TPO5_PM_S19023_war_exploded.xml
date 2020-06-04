@@ -8,6 +8,9 @@
           <element id="module-output" name="TPO5_PM_S19023" />
         </element>
         <element id="dir-copy" path="$PROJECT_DIR$/web/css" />
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mysql-connector-java-8.0.20" />
+        </element>
       </element>
       <element id="directory" name="css">
         <element id="dir-copy" path="$PROJECT_DIR$/web/css" />
