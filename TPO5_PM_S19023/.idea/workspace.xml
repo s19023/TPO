@@ -7,17 +7,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6742f75a-acf5-4c9c-8d65-d1e2b09d3148" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TPO5_PM_S19023_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/TPO5_PM_S19023_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/tomcat.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/tomcat.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TPO5_PM_S19023_war_exploded/WEB-INF/text.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TPO5_PM_S19023_war_exploded/WEB-INF/text.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TPO5_PM_S19023_war_exploded/css/text.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TPO5_PM_S19023_war_exploded/css/text.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TPO5_PM_S19023_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TPO5_PM_S19023_war_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/text.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/text.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="6742f75a-acf5-4c9c-8d65-d1e2b09d3148" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +47,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TPO6_PM_S19023" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -219,6 +209,7 @@
       <workItem from="1589998551961" duration="1834000" />
       <workItem from="1590002072859" duration="672000" />
       <workItem from="1590744444023" duration="6049000" />
+      <workItem from="1591298885729" duration="17000" />
     </task>
     <task id="LOCAL-00001" summary="Add: Command interface implementation">
       <created>1589489417295</created>
@@ -324,10 +315,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="796" y="523" key="#com.intellij.javaee.module.view.common.J2EE.J2EEDeploymentDescriptorLocationPanel.changeDDPath/0.0.1920.1050@0.0.1920.1050" timestamp="1590747622268" />
-    <state x="380" y="224" key="FileChooserDialogImpl" timestamp="1590747734648">
+    <state x="380" y="224" key="FileChooserDialogImpl" timestamp="1591298900195">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="380" y="224" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1590747734648" />
+    <state x="380" y="224" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1591298900195" />
     <state width="1293" height="285" key="GridCell.Tab.0.bottom" timestamp="1590755725827">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
