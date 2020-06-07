@@ -8,13 +8,11 @@ import javax.naming.NamingException;
 
 public class Receiver extends JMSConnectionBase
 {
-    private Context context;
-    private QueueConnection connection;
-    private QueueSession session;
     private QueueReceiver receiver;
 
     Receiver()
     {
+        super();
         createReceiver();
     }
 
@@ -22,6 +20,12 @@ public class Receiver extends JMSConnectionBase
     {
         Context context = getContext();
         QueueSession session = getSession();
+
+        if (context == null)
+        {
+            System.err.println("Context is not set. Unable to create receiver connection.");
+            return;
+        }
 
         try
         {

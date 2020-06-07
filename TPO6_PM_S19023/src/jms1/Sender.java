@@ -9,6 +9,7 @@ public class Sender extends JMSConnectionBase
 
     Sender()
     {
+        super();
         createSender();
     }
 
@@ -16,6 +17,12 @@ public class Sender extends JMSConnectionBase
     {
         Context context = getContext();
         QueueSession session = getSession();
+
+        if (context == null)
+        {
+            System.err.println("Context is not set. Unable to create sender connection.");
+            return;
+        }
 
         try
         {
