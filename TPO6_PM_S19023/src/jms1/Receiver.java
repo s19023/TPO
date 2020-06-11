@@ -28,7 +28,11 @@ public class Receiver
         {
             Topic topic = connection.getTopic();
             MessageConsumer consumer = session.createDurableSubscriber(topic, connection.getUsername());
-            consumer.setMessageListener(message -> System.out.println("Received: " + message + "."));
+            consumer.setMessageListener(message ->
+            {
+                System.out.println("Received: " + message + ".");
+                connection.receiveMessage(message.toString());
+            });
             System.out.println("Receiver connected to JMS server.");
         }
         catch (JMSException jmsException)

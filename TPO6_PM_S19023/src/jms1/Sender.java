@@ -5,7 +5,7 @@ import javax.naming.Context;
 public class Sender
 {
     private JMSConnection connection;
-    private MessageProducer sender;
+    private TopicPublisher sender;
 
     Sender(JMSConnection connection)
     {
@@ -44,7 +44,7 @@ public class Sender
         try
         {
             TextMessage textMessage = session.createTextMessage(message);
-            sender.send(textMessage);
+            sender.publish(textMessage);
             System.out.println("Sent message \"" + message + "\".");
         }
         catch (JMSException jmsException)

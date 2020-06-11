@@ -4,6 +4,10 @@ import javax.jms.*;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.swing.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class JMSConnection
 {
@@ -14,13 +18,17 @@ public class JMSConnection
     private String username;
     private Sender sender;
     private Receiver receiver;
+    private JTextArea chatHistory;
+    private SimpleDateFormat dateFormat;
 
-    public JMSConnection(String username)
+    public JMSConnection(String username, JTextArea chatHistory)
     {
         this.username = username;
         connect();
         sender = new Sender(this);
         receiver = new Receiver(this);
+        this.chatHistory = chatHistory;
+        dateFormat = new SimpleDateFormat("dd/MM/yy '|' HH:mm:ss");
     }
 
     private void connect()
@@ -72,6 +80,12 @@ public class JMSConnection
     public void sendMessage(String message)
     {
         sender.sendMessage(username + ": " + message);
+    }
+
+    public void receiveMessage(String message)
+    {
+        chatHistory.append(dateFormat.format(new Date()) + "\n");
+        chatHistory.append(message + "\n");
     }
 
     public Context getContext()

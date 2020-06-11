@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="openjms">
+  <library name="lib">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/openjms/lib" />
     </CLASSES>
