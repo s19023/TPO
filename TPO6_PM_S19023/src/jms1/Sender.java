@@ -1,22 +1,22 @@
 package jms1;
 import javax.jms.*;
 import javax.naming.Context;
-import javax.naming.NamingException;
 
-public class Sender extends JMSConnectionBase
+public class Sender
 {
-    private QueueSender sender;
+    private JMSConnection connection;
+    private MessageProducer sender;
 
-    Sender()
+    Sender(JMSConnection connection)
     {
-        super();
+        this.connection = connection;
         createSender();
     }
 
     private void createSender()
     {
-        Context context = getContext();
-        QueueSession session = getSession();
+        Context context = connection.getContext();
+        TopicSession session = connection.getSession();
 
         if (context == null)
         {
@@ -26,24 +26,20 @@ public class Sender extends JMSConnectionBase
 
         try
         {
-            Queue queue = (Queue) context.lookup("chatQueue");
-            sender = session.createSender(queue);
+            Topic topic = connection.getTopic();
+            sender = session.createPublisher(topic);
 
             System.out.println("Sender connected to JMS server.");
         }
-        catch (NamingException namingException)
-        {
-            System.out.println("JMS server not configured properly. Cause: " + namingException.getMessage() + ".");
-        }
         catch (JMSException jmsException)
         {
-            System.out.println("JMS error while establishing connection. Cause: " + jmsException.getMessage() + ".");
+            System.err.println("JMS error while establishing connection. Cause: " + jmsException.getMessage() + ".");
         }
     }
 
     public void sendMessage(String message)
     {
-        QueueSession session = getSession();
+        TopicSession session = connection.getSession();
 
         try
         {
@@ -53,7 +49,7 @@ public class Sender extends JMSConnectionBase
         }
         catch (JMSException jmsException)
         {
-            System.out.println("JMS error while sending message! Cause: " + jmsException.getMessage() + ".");
+            System.err.println("JMS error while sending message! Cause: " + jmsException.getMessage() + ".");
         }
     }
 }

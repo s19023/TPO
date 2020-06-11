@@ -45,6 +45,7 @@
 
     <!-- Optional. If not specified, no destinations will be created -->
     <AdministeredDestinations>
+        <AdministeredTopic name="chatTopic"/>
         <AdministeredTopic name="simpleTopic"/>
         <AdministeredTopic name="objectMessagesTopic"/>
         <AdministeredTopic name="bytesMessagesTopic"/>

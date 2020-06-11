@@ -7,22 +7,18 @@ import java.awt.event.WindowEvent;
 
 public class ChatWindow extends JFrame
 {
-    private Receiver receiver;
-    private Sender sender;
-
     public static void main(String[] args)
     {
-        SwingUtilities.invokeLater(ChatWindow::new);
+        SwingUtilities.invokeLater(() -> new ChatWindow(args[0]));
     }
 
-    private ChatWindow()
+    private ChatWindow(String username)
     {
         setTitle("JMS Chat");
         setVisible(true);
         setSize(400, 400);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        sender = new Sender();
-        receiver = new Receiver();
+        JMSConnection jmsConnection = new JMSConnection(username);
         TextArea chatHistory = new TextArea();
         chatHistory.setEditable(false);
         add(chatHistory);
@@ -35,8 +31,7 @@ public class ChatWindow extends JFrame
             public void windowClosing(WindowEvent e)
             {
                 super.windowClosing(e);
-                receiver.disconnect();
-                sender.disconnect();
+                jmsConnection.disconnect();
             }
         });
     }
